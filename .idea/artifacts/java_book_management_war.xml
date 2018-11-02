@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="java_book_management:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/java_book_management_war</output-path>
+    <root id="archive" name="java_book_management_war.war">
+      <element id="artifact" artifact-name="java_book_management:war exploded" />
+    </root>
+  </artifact>
+</component>
