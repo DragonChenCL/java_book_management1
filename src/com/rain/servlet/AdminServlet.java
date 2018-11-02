@@ -1,7 +1,8 @@
 package com.rain.servlet;
 
-import java.io.IOException;
-import java.io.PrintWriter;
+import com.rain.bean.AdminBean;
+import com.rain.dao.AdminDao;
+import com.rain.dao.BookDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,10 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import com.rain.bean.AdminBean;
-import com.rain.dao.AdminDao;
-import com.rain.dao.BookDao;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  * Servlet implementation class AdminServlet
@@ -70,10 +69,9 @@ public class AdminServlet extends HttpServlet {
 			if(old_password.equals(password)){
 				admindao.updateUser(adminbean.getAid(), adminbean.getUsername(), password2, adminbean.getName(),
 						adminbean.getEmail(), adminbean.getPhone(), adminbean.getLend_num(), adminbean.getMax_num());
-				response.sendRedirect("/books/"+url+".jsp");
+				response.sendRedirect("/books/ExitServlet");
 			}else{
 				out.write("<script type='text/javascript'>alert('password error');location.href='"+url+".jsp';  </script>");
-				
 			}
 		}else{
 			//修改个人资料

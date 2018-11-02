@@ -11,8 +11,8 @@ public class DBUtil {
 	 * 连接数据库的操作，用户名，密码，使用jdbc连接
 	 */
 	public static String username = "root";
-	public static String password = "root";
-	public static String url = "jdbc:mysql://localhost:3306/books";
+	public static String password = "12345";
+	public static String url = "jdbc:mysql://47.100.185.39:3306/books";
 	
 	static{
 		try {

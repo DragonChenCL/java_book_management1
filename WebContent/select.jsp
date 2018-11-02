@@ -51,7 +51,7 @@ admin = admindao.get_AidInfo2(aid);
                                  <li role="presentation" class="divider"></li>
                                 <li><a href="#updatepwd" data-toggle="modal">修改密码</a></li>
                                 <li role="presentation" class="divider"></li>
-                                <li><a href="/books/login.jsp">退出</a></li>
+                                <li><a href="${pageContext.request.contextPath}/ExitServlet">退出</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -68,13 +68,13 @@ admin = admindao.get_AidInfo2(aid);
         <div class="col-md-2 bootstrap-admin-col-left">
             <ul class="nav navbar-collapse collapse bootstrap-admin-navbar-side">
                 <li>
-                    <a href="/books/select.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书查询</a>
+                    <a href="${pageContext.request.contextPath}/select.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书查询</a>
                 </li>
 	            <li>
-	                 <a href="/books/borrow.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 借阅信息</a>
+	                 <a href="${pageContext.request.contextPath}/borrow.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 借阅信息</a>
 	                </li>
 	                <li>
-	                    <a href="/books/history.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 借阅历史</a>
+	                    <a href="${pageContext.request.contextPath}/history.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 借阅历史</a>
 	                </li>
             </ul>
         </div>
@@ -89,12 +89,19 @@ admin = admindao.get_AidInfo2(aid);
                                 <div class="text-muted bootstrap-admin-box-title">查询</div>
                             </div>
                             <div class="bootstrap-admin-no-table-panel-content bootstrap-admin-panel-content collapse in">
-                                <form class="form-horizontal" action="/books/selectServlet" method="post">
+                                <form class="form-horizontal" action="${pageContext.request.contextPath}/selectServlet" method="post">
                                 <input type="hidden" name="tip" value="2">
-                                    <div class="col-lg-8 form-group">
-                                        <label class="col-lg-4 control-label" for="query_bname">图书名称</label>
-                                        <div class="col-lg-8">
-                                            <input class="form-control" id="bookName" name="name" type="text" value="">
+                                    <div class="col-lg-7 form-group" style="width: 330px;">
+                                        <label class="col-lg-4 control-label" for="query_bname" style="width: 90px">图书名称</label>
+                                        <div class="col-lg-4">
+                                            <input class="form-control" id="bookName" name="name" type="text" value="" style="width: 126px">
+                                            <label class="control-label" for="query_bname" style="display: none;"></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7 form-group" style="width: 330px;">
+                                        <label class="col-lg-4 control-label" for="query_bname" style="width: 90px">图书类型</label>
+                                        <div class="col-lg-4">
+                                            <input class="form-control" id="bookType" name="bookType" type="text" value="" style="width: 126px">
                                             <label class="control-label" for="query_bname" style="display: none;"></label>
                                         </div>
                                     </div>
@@ -163,7 +170,7 @@ admin = admindao.get_AidInfo2(aid);
     function borrowbook(bid) {
     	con=confirm("是否借阅?"); 
     	if(con==true){
-    		location.href = "/books/borrowServlet?tip=1&bid="+bid;
+    		location.href = "${pageContext.request.contextPath}/borrowServlet?tip=1&bid="+bid;
     	}
     }
     </script>
@@ -178,7 +185,7 @@ admin = admindao.get_AidInfo2(aid);
 
 <!-------------------------------------------------------------->  
                  
-                   <form class="form-horizontal" method="post" action="/books/AdminServlet">   <!--保证样式水平不混乱-->                  
+                   <form class="form-horizontal" method="post" action="${pageContext.request.contextPath}/AdminServlet">   <!--保证样式水平不混乱-->
                                      <!-- 模态框（Modal） -->
 				<div class="modal fade" id="updatepwd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 					<div class="modal-dialog">
@@ -230,7 +237,7 @@ admin = admindao.get_AidInfo2(aid);
                                    
                                    <!-------------------------个人资料模糊框------------------------------------->  
                  
-                   <form class="form-horizontal" method="post" action="/books/AdminServlet">   <!--保证样式水平不混乱-->                  
+                   <form class="form-horizontal" method="post" action="${pageContext.request.contextPath}/AdminServlet">   <!--保证样式水平不混乱-->
                                      <!-- 模态框（Modal） -->
 				<div class="modal fade" id="updateinfo" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
 					<div class="modal-dialog">

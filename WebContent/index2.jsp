@@ -51,7 +51,7 @@ admin = admindao.get_AidInfo2(aid);
                                  <li role="presentation" class="divider"></li>
                                 <li><a href="#updatepwd" data-toggle="modal">修改密码</a></li>
                                 <li role="presentation" class="divider"></li>
-                                <li><a href="/books/login.jsp">退出</a></li>
+                                <li><a href="${pageContext.request.contextPath}/ExitServlet">退出</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -68,13 +68,13 @@ admin = admindao.get_AidInfo2(aid);
         <div class="col-md-2 bootstrap-admin-col-left">
             <ul class="nav navbar-collapse collapse bootstrap-admin-navbar-side">
                 <li>
-                    <a href="/books/select.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书查询</a>
+                    <a href="${pageContext.request.contextPath}/select.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书查询</a>
                 </li>
 	            <li>
-	                 <a href="/books/borrow.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 借阅信息</a>
+	                 <a href="${pageContext.request.contextPath}/borrow.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 借阅信息</a>
 	                </li>
 	                <li>
-	                    <a href="/books/history.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 借阅历史</a>
+	                    <a href="${pageContext.request.contextPath}/history.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 借阅历史</a>
 	                </li>
                 
                     
@@ -148,7 +148,7 @@ admin = admindao.get_AidInfo2(aid);
 
 <!-------------------------------------------------------------->  
                  
-                   <form class="form-horizontal" method="post" action="/books/AdminServlet">   <!--保证样式水平不混乱-->                  
+                   <form class="form-horizontal" method="post" action="${pageContext.request.contextPath}/AdminServlet">   <!--保证样式水平不混乱-->
                                      <!-- 模态框（Modal） -->
 				<div class="modal fade" id="updatepwd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 					<div class="modal-dialog">
@@ -200,7 +200,7 @@ admin = admindao.get_AidInfo2(aid);
                                    
                                    <!-------------------------个人资料模糊框------------------------------------->  
                  
-                   <form class="form-horizontal" method="post" action="/books/AdminServlet">   <!--保证样式水平不混乱-->                  
+                   <form class="form-horizontal" method="post" action="${pageContext.request.contextPath}/AdminServlet">   <!--保证样式水平不混乱-->
                                      <!-- 模态框（Modal） -->
 				<div class="modal fade" id="updateinfo" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
 					<div class="modal-dialog">

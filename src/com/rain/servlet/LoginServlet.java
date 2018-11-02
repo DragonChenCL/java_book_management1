@@ -1,19 +1,16 @@
 package com.rain.servlet;
 
-import java.io.IOException;
-import java.io.PrintWriter;
+import com.rain.bean.AdminBean;
+import com.rain.dao.AdminDao;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
-
-import com.rain.bean.AdminBean;
-import com.rain.dao.AdminDao;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  * Servlet implementation class LoginServlet
@@ -73,7 +70,7 @@ public class LoginServlet extends HttpServlet {
 			}
 		}else{
 			//没有找到对应的账号和密码，返回重新登录
-			session.setAttribute("state", "密码错误");
+			session.setAttribute("state", "╮(╯3╰)╭兄dei，你用户名或密码错了！");
 			response.sendRedirect("/books/login.jsp");
 		}
 	}

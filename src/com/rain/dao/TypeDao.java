@@ -1,13 +1,13 @@
 package com.rain.dao;
 
+import com.rain.bean.TypeBean;
+import com.rain.util.DBUtil;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
-import com.rain.bean.TypeBean;
-import com.rain.util.DBUtil;
 /**
  * 图书分类的类
  */
@@ -44,16 +44,23 @@ public class TypeDao {
 	 * @param tid
 	 * @param name
 	 */
-	public void updateTypeBook(int tid, String name) {
+	public void updateTypeBook(int tid, String name,String oldName) {
 		// TODO Auto-generated method stub
 		Connection conn = DBUtil.getConnectDb();
 		String sql = "update booktype set name=? where tid=?";
+		String sql1 = "update book set type =? where type=?";
 		PreparedStatement stm = null;
+		PreparedStatement stm1 = null;
 		try {
 			stm = conn.prepareStatement(sql);
 			stm.setString(1, name);
 			stm.setInt(2, tid);
 			stm.executeUpdate();
+
+            stm1 = conn.prepareStatement(sql1);
+            stm1.setString(1, name);
+            stm1.setString(2, oldName);
+            stm1.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

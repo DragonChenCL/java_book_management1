@@ -1,17 +1,16 @@
 package com.rain.dao;
 
+import com.rain.bean.AdminBean;
+import com.rain.bean.BookBean;
+import com.rain.bean.HistoryBean;
+import com.rain.util.DBUtil;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
-
-import com.rain.bean.AdminBean;
-import com.rain.bean.BookBean;
-import com.rain.bean.HistoryBean;
-import com.rain.bean.TypeBean;
-import com.rain.util.DBUtil;
 /**
  * 关于图书连接数据库的所有操作的类
  */
@@ -229,11 +228,11 @@ public class BookDao {
 	 * @param name
 	 * @return
 	 */
-	public ArrayList<BookBean> getLikeList(String name) {
+	public ArrayList<BookBean> getLikeList(String name,String bookType) {
 		// TODO Auto-generated method stub
 		ArrayList<BookBean> tag_Array = new ArrayList<BookBean>();
 		Connection conn = DBUtil.getConnectDb();
-		String sql = "select * from book where name like '%"+name+"%'";
+		String sql = "select * from book where name like '%"+name+"%' and type like '%" + bookType +"%'" ;
 		PreparedStatement stm = null;
 		ResultSet rs = null;
 		try {

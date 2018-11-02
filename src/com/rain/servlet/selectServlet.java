@@ -1,16 +1,15 @@
 package com.rain.servlet;
 
-import java.io.IOException;
-import java.util.ArrayList;
+import com.rain.bean.BookBean;
+import com.rain.dao.BookDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.rain.bean.BookBean;
-import com.rain.dao.BookDao;
+import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Servlet implementation class selectServlet
@@ -47,8 +46,9 @@ public class selectServlet extends HttpServlet {
 		//因为在管理员界面和读者界面都有查找功能，为了将查找的结果返回正确的页面，设置了tip，tip=1表示管理员界面
 		int tip = Integer.parseInt(request.getParameter("tip"));
 		String name = request.getParameter("name");
+		String bookType = request.getParameter("bookType");
 		BookDao bookdao = new BookDao();
-		ArrayList<BookBean> data = bookdao.getLikeList(name);
+		ArrayList<BookBean> data = bookdao.getLikeList(name,bookType);
 		//将获取的结果存入请求中
 		request.setAttribute("data", data);
 		String url = "";

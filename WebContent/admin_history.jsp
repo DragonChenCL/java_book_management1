@@ -50,7 +50,7 @@ admin = admindao.get_AidInfo2(aid);
                                       <li role="presentation" class="divider"></li>
                                        <li><a href="#updatepwd" data-toggle="modal">修改密码</a></li>
                                         <li role="presentation" class="divider"></li>
-                                    <li><a href="/books/login.jsp">退出</a></li>
+                                    <li><a href="${pageContext.request.contextPath}/ExitServlet">退出</a></li>
                                 </ul>
                                 
                             </li>
@@ -68,19 +68,19 @@ admin = admindao.get_AidInfo2(aid);
             <div class="col-md-2 bootstrap-admin-col-left">
                 <ul class="nav navbar-collapse collapse bootstrap-admin-navbar-side">
                     <li>
-                        <a href="/books/admin_book.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书管理</a>
+                        <a href="${pageContext.request.contextPath}/admin_book.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书管理</a>
                     </li>
                     <li>
-                        <a href="/books/admin_user.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 读者管理</a>
+                        <a href="${pageContext.request.contextPath}/admin_user.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 读者管理</a>
                     </li>
                     <li>
-                        <a href="/books/admin_booktype.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书分类管理</a>
+                        <a href="${pageContext.request.contextPath}/admin_booktype.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书分类管理</a>
                     </li>
                     <li>
-                        <a href="/books/admin_borrow.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书借阅信息</a>
+                        <a href="${pageContext.request.contextPath}/admin_borrow.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书借阅信息</a>
                     </li>
                     <li>
-                        <a href="/books/admin_history.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书归还信息</a>
+                        <a href="${pageContext.request.contextPath}/admin_history.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书归还信息</a>
                     </li>
                 </ul>
                 
@@ -149,7 +149,7 @@ admin = admindao.get_AidInfo2(aid);
                                      <!-------------------------------------------------------------->  
                                 
                                         <!-- 修改模态框（Modal） -->
-                               <form class="form-horizontal" method="post" action="/books/updateBookServlet">   <!--保证样式水平不混乱-->   
+                               <form class="form-horizontal" method="post" action="${pageContext.request.contextPath}/updateBookServlet">   <!--保证样式水平不混乱-->
 									<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
 										<div class="modal-dialog">
 											<div class="modal-content">
@@ -195,7 +195,7 @@ admin = admindao.get_AidInfo2(aid);
     
     
      <!--------------------------------------添加的模糊框------------------------>  
-                                 <form class="form-horizontal" method="post" action="/books/AddBookServlet">   <!--保证样式水平不混乱-->   
+                                 <form class="form-horizontal" method="post" action="${pageContext.request.contextPath}/AddBookServlet">   <!--保证样式水平不混乱-->
                                         <!-- 模态框（Modal） -->
 									<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 										<div class="modal-dialog">
@@ -244,7 +244,7 @@ admin = admindao.get_AidInfo2(aid);
   
 <!-------------------------------------------------------------->  
                  
-                   <form class="form-horizontal" method="post" action="/books/AdminServlet">   <!--保证样式水平不混乱-->                  
+                   <form class="form-horizontal" method="post" action="${pageContext.request.contextPath}/AdminServlet">   <!--保证样式水平不混乱-->
                                      <!-- 模态框（Modal） -->
 				<div class="modal fade" id="updatepwd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 					<div class="modal-dialog">
@@ -296,7 +296,7 @@ admin = admindao.get_AidInfo2(aid);
                                    
                                    <!-------------------------个人资料模糊框------------------------------------->  
                  
-                   <form class="form-horizontal" method="post" action="/books/AdminServlet">   <!--保证样式水平不混乱-->                  
+                   <form class="form-horizontal" method="post" action="${pageContext.request.contextPath}/AdminServlet">   <!--保证样式水平不混乱-->
                                      <!-- 模态框（Modal） -->
 				<div class="modal fade" id="updateinfo" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
 					<div class="modal-dialog">

@@ -27,28 +27,27 @@
 <script src="static/js/jquery.min.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
 
-
 <body class="bootstrap-admin-without-padding">
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
-            <div class="alert alert-info">
+            <div class="alert alert-info" style="width: 402px">
                 <a class="close" data-dismiss="alert" href="#">&times;</a>
                 欢迎登录图书馆管理系统
             </div>
             
-            <form class="bootstrap-admin-login-form" method="post" action="/books/LoginServlet">
+            <form class="bootstrap-admin-login-form" method="post" action="${pageContext.request.contextPath}/LoginServlet" name="content">
                  <% 
 					String state = (String)session.getAttribute("state");
 					session.removeAttribute("state");
 					if(state!=null){
 					%>
-                 <label class="control-label" for="username">密码错误</label>
+                 <label class="control-label" for="username" style="color: #ff0a11;"><%=state%></label>
                  
                  <%}%>
                 <div class="form-group">
                     <label class="control-label" for="username">账&nbsp;号</label>
-                    <input type="text" class="form-control" id="username" name="username" required="required" placeholder="学号"/>
+                    <input type="text" class="form-control" id="username" name="username" required="required" placeholder="学号" />
                     <label class="control-label" for="username" style="display:none;"></label>
                 </div>
                 <div class="form-group">
@@ -57,7 +56,7 @@
                     <label class="control-label" for="username" style="display:none;"></label>
                 </div>
                 
-                    <label class="control-label" for="password">没有账号请<a href="/books/register.jsp" style="color:blue;">注册</a></label>
+                    <label class="control-label" for="password">没有账号请<a href="${pageContext.request.contextPath}/register.jsp" style="color:blue;">注册</a></label>
                 <br>
                 <input type="submit" class="btn btn-lg btn-primary"  value="登&nbsp;&nbsp;&nbsp;&nbsp;录"/>
                 
@@ -65,6 +64,13 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    $(document).read(function () {
+        $("#username").onfocus;
+    });
+</script>
+
 <div class="modal fade" id="modal_info" tabindex="-1" role="dialog" aria-labelledby="addModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">

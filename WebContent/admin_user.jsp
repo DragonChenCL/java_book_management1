@@ -51,7 +51,7 @@ admin = admindao.get_AidInfo2(aid);
                                        <li><a href="#updatepwd" data-toggle="modal">修改密码</a></li>
                                         <li role="presentation" class="divider"></li>
                                      <!-- href="#identifier"  来指定要切换的特定的模态框（带有 id="identifier"）。-->  
-                                    <li><a href="/books/login.jsp">退出</a></li>
+                                    <li><a href="${pageContext.request.contextPath}/ExitServlet">退出</a></li>
                                 </ul>
                                 
                             </li>
@@ -69,19 +69,19 @@ admin = admindao.get_AidInfo2(aid);
             <div class="col-md-2 bootstrap-admin-col-left">
                 <ul class="nav navbar-collapse collapse bootstrap-admin-navbar-side">
                     <li>
-                        <a href="/books/admin_book.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书管理</a>
+                        <a href="${pageContext.request.contextPath}/admin_book.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书管理</a>
                     </li>
                     <li>
-                        <a href="/books/admin_user.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 读者管理</a>
+                        <a href="${pageContext.request.contextPath}/admin_user.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 读者管理</a>
                     </li>
                     <li>
-                        <a href="/books/admin_booktype.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书分类管理</a>
+                        <a href="${pageContext.request.contextPath}/admin_booktype.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书分类管理</a>
                     </li>
                     <li>
-                        <a href="/books/admin_borrow.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书借阅信息</a>
+                        <a href="${pageContext.request.contextPath}/admin_borrow.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书借阅信息</a>
                     </li>
                     <li>
-                        <a href="/books/admin_history.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书归还信息</a>
+                        <a href="${pageContext.request.contextPath}/admin_history.jsp"><i class="glyphicon glyphicon-chevron-right"></i> 图书归还信息</a>
                     </li>
                 </ul>
                 
@@ -98,7 +98,7 @@ admin = admindao.get_AidInfo2(aid);
                                 <div class="text-muted bootstrap-admin-box-title">读者管理</div>
                             </div>
                             <div class="bootstrap-admin-no-table-panel-content bootstrap-admin-panel-content collapse in">
-                                <form class="form-horizontal" action="/books/selectServlet" method="post">
+                                <form class="form-horizontal" action="${pageContext.request.contextPath}/selectServlet" method="post">
                         
                                     <div class="col-lg-3 form-group">
 
@@ -151,8 +151,8 @@ admin = admindao.get_AidInfo2(aid);
 	                                <td><%= bean.getLend_num() %></td>
 	                                <td><%= bean.getMax_num() %></td>
 <td><button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#updateModal" 
-id="btn_update" onclick="showInfo2(<%= bean.getAid() %>,<%= bean.getUsername() %>,<%= bean.getName() %>,<%= bean.getEmail() %>
-,<%= bean.getPhone() %>,<%= bean.getPassword() %>,<%= bean.getLend_num() %>,<%= bean.getMax_num() %>)">修改</button>
+id="btn_update" onclick="showInfo2('<%= bean.getAid() %>','<%= bean.getUsername() %>','<%= bean.getName() %>','<%= bean.getEmail() %>'
+,'<%= bean.getPhone() %>','<%= bean.getPassword() %>','<%= bean.getLend_num() %>','<%= bean.getMax_num() %>')">修改</button>
 <button type="button" class="btn btn-danger btn-xs" onclick="deletebook(<%= bean.getAid() %>)">删除</button>
 	</td>                                            
                           	  </tbody>
@@ -176,7 +176,7 @@ id="btn_update" onclick="showInfo2(<%= bean.getAid() %>,<%= bean.getUsername() %
     function deletebook(aid) {
     	con=confirm("是否删除?"); 
     	if(con==true){
-    		location.href = "/books/deleteUserServlet?aid="+aid;
+    		location.href = "${pageContext.request.contextPath}/deleteUserServlet?aid="+aid;
     	}
     }
     </script>
@@ -186,7 +186,7 @@ id="btn_update" onclick="showInfo2(<%= bean.getAid() %>,<%= bean.getUsername() %
                                      <!-------------------------------------------------------------->  
                                 
                                         <!-- 修改模态框（Modal） -->
-                               <form class="form-horizontal" method="post" action="/books/updateUserServlet">   <!--保证样式水平不混乱-->   
+                               <form class="form-horizontal" method="post" action="${pageContext.request.contextPath}/updateUserServlet">   <!--保证样式水平不混乱-->
 									<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
 										<div class="modal-dialog">
 											<div class="modal-content">
@@ -279,7 +279,7 @@ id="btn_update" onclick="showInfo2(<%= bean.getAid() %>,<%= bean.getUsername() %
     
     
      <!--------------------------------------添加的模糊框------------------------>  
-                                 <form class="form-horizontal" method="post" action="/books/AddUserServlet">   <!--保证样式水平不混乱-->   
+                                 <form class="form-horizontal" method="post" action="${pageContext.request.contextPath}/AddUserServlet">   <!--保证样式水平不混乱-->
                                         <!-- 模态框（Modal） -->
 									<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 										<div class="modal-dialog">
@@ -378,7 +378,7 @@ id="btn_update" onclick="showInfo2(<%= bean.getAid() %>,<%= bean.getUsername() %
     
 <!-------------------------------------------------------------->  
                  
-                   <form class="form-horizontal" method="post" action="/books/AdminServlet">   <!--保证样式水平不混乱-->                  
+                   <form class="form-horizontal" method="post" action="${pageContext.request.contextPath}/AdminServlet">   <!--保证样式水平不混乱-->
                                      <!-- 模态框（Modal） -->
 				<div class="modal fade" id="updatepwd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 					<div class="modal-dialog">
@@ -430,7 +430,7 @@ id="btn_update" onclick="showInfo2(<%= bean.getAid() %>,<%= bean.getUsername() %
                                    
                                    <!-------------------------个人资料模糊框------------------------------------->  
                  
-                   <form class="form-horizontal" method="post" action="/books/AdminServlet">   <!--保证样式水平不混乱-->                  
+                   <form class="form-horizontal" method="post" action="${pageContext.request.contextPath}/AdminServlet">   <!--保证样式水平不混乱-->
                                      <!-- 模态框（Modal） -->
 				<div class="modal fade" id="updateinfo" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
 					<div class="modal-dialog">

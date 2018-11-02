@@ -37,7 +37,7 @@
                 欢迎登录图书馆管理系统
             </div>
             
-            <form class="bootstrap-admin-login-form" method="post" action="/books/LoginServlet">
+            <form class="bootstrap-admin-login-form" method="post" action="${pageContext.request.contextPath}/LoginServlet">
                  <% 
 					String state = (String)session.getAttribute("state");
 					session.removeAttribute("state");
@@ -57,7 +57,7 @@
                     <label class="control-label" for="username" style="display:none;"></label>
                 </div>
                 
-                    <label class="control-label" for="password">没有账号请<a href="/books/register.jsp" style="color:blue;">注册</a></label>
+                    <label class="control-label" for="password">没有账号请<a href="${pageContext.request.contextPath}/register.jsp" style="color:blue;">注册</a></label>
                 <br>
                 <input type="submit" class="btn btn-lg btn-primary"  value="登&nbsp;&nbsp;&nbsp;&nbsp;录"/>
                 
