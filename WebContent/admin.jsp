@@ -40,7 +40,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="collapse navbar-collapse main-navbar-collapse">
-                    <a class="navbar-brand" href="/admin/admin.jsp"><strong>欢迎使用图书馆管理系统</strong></a>
+                    <a class="navbar-brand" href="/books/admin.jsp"><strong>欢迎使用图书馆管理系统</strong></a>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
                             <a href="#" role="button" class="dropdown-toggle" data-hover="dropdown"> <i
