@@ -1,5 +1,7 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ page import = "com.rain.bean.AdminBean,com.rain.dao.AdminDao,com.rain.bean.BookBean,com.rain.dao.BookDao" %>
+<%@ page language="java" import="com.rain.bean.AdminBean" pageEncoding="UTF-8"%>
+<%@ page import = "com.rain.bean.BookBean,com.rain.bean.TypeBean,com.rain.dao.AdminDao,com.rain.dao.BookDao" %>
+<%@ page import="com.rain.dao.TypeDao" %>
+<%@ page import="java.util.ArrayList" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="zh-CN" class="ax-vertical-centered">
 <head>
@@ -45,7 +47,7 @@ admin = admindao.get_AidInfo2(aid);
                     <a class="navbar-brand" href="/reader.jsp"><strong>欢迎使用图书馆管理系统</strong></a>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
-                            <a href="#" role="button" class="dropdown-toggle" data-hover="dropdown"> <i class="glyphicon glyphicon-user"></i>     欢迎您，<s:property value="#session.reader.name"/><i class="caret"></i></a>
+                            <a href="#" role="button" class="dropdown-toggle" data-hover="dropdown"> <i class="glyphicon glyphicon-user"></i>     欢迎您，<%=admin.getName() %><i class="caret"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#updateinfo" data-toggle="modal">个人资料</a></li>
                                  <li role="presentation" class="divider"></li>
@@ -100,10 +102,19 @@ admin = admindao.get_AidInfo2(aid);
                                     </div>
                                     <div class="col-lg-7 form-group" style="width: 330px;">
                                         <label class="col-lg-4 control-label" for="query_bname" style="width: 90px">图书类型</label>
-                                        <div class="col-lg-4">
-                                            <input class="form-control" id="bookType" name="bookType" type="text" value="" style="width: 126px">
-                                            <label class="control-label" for="query_bname" style="display: none;"></label>
-                                        </div>
+                                        <select class="form-control" id="chooseBookType" name="type"
+                                                onPropertyChange="showValue(this.value)" style="width: 126px">
+                                            <option value="-1">请选择</option>
+                                            <%
+                                                TypeDao typedao = new TypeDao();
+                                                ArrayList<TypeBean> data = (ArrayList<TypeBean>) typedao.get_ListInfo();
+                                                data = (ArrayList<TypeBean>) typedao.get_ListInfo();
+                                                for (TypeBean bean2 : data) {
+                                            %>
+                                            <option value="<%= bean2.getName() %>"><%= bean2.getName() %>
+                                            </option>
+                                            <%} %>
+                                        </select>
                                     </div>
                                     
                                   

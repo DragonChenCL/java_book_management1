@@ -45,7 +45,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
                             <a href="#" role="button" class="dropdown-toggle" data-hover="dropdown"> <i
-                                    class="glyphicon glyphicon-user"></i> 欢迎您，<s:property value="#session.reader.name"/><i
+                                    class="glyphicon glyphicon-user"></i> 欢迎您，<%=admin.getName() %><i
                                     class="caret"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#updateinfo" data-toggle="modal">个人资料</a></li>

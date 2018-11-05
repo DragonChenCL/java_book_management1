@@ -46,7 +46,7 @@ public class selectServlet extends HttpServlet {
 		//因为在管理员界面和读者界面都有查找功能，为了将查找的结果返回正确的页面，设置了tip，tip=1表示管理员界面
 		int tip = Integer.parseInt(request.getParameter("tip"));
 		String name = request.getParameter("name");
-		String bookType = request.getParameter("bookType");
+		String bookType = request.getParameter("type");
 		BookDao bookdao = new BookDao();
 		ArrayList<BookBean> data = bookdao.getLikeList(name,bookType);
 		//将获取的结果存入请求中

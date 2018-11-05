@@ -45,7 +45,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
                             <a href="#" role="button" class="dropdown-toggle" data-hover="dropdown"> <i
-                                    class="glyphicon glyphicon-user"></i> 欢迎您， <s:property value="#session.admin.name"/>
+                                    class="glyphicon glyphicon-user"></i> 欢迎您，<%=admin.getUsername() %>
                                 <i class="caret"></i></a>
 
                             <ul class="dropdown-menu">
@@ -111,10 +111,19 @@
                                 </div>
                                 <div class="col-lg-7 form-group" style="width: 330px;">
                                     <label class="col-lg-4 control-label" for="query_bname" style="width: 90px">图书类型</label>
-                                    <div class="col-lg-4">
-                                        <input class="form-control" id="bookType" name="bookType" type="text" value="" style="width: 126px">
-                                        <label class="control-label" for="query_bname" style="display: none;"></label>
-                                    </div>
+                                    <select class="form-control" id="chooseBookType" name="type"
+                                            onPropertyChange="showValue(this.value)" style="width: 126px">
+                                        <option value="-1">请选择</option>
+                                        <%
+                                            TypeDao typedao = new TypeDao();
+                                            ArrayList<TypeBean> data = (ArrayList<TypeBean>) typedao.get_ListInfo();
+                                            data = (ArrayList<TypeBean>) typedao.get_ListInfo();
+                                            for (TypeBean bean2 : data) {
+                                        %>
+                                        <option value="<%= bean2.getName() %>"><%= bean2.getName() %>
+                                        </option>
+                                        <%} %>
+                                    </select>
                                 </div>
                                 <div class="col-lg-3 form-group" style="width:144px">
 
@@ -276,10 +285,10 @@
                                         onPropertyChange="showValue(this.value)">
                                     <option value="-1">请选择</option>
                                     <%
-                                        TypeDao typedao = new TypeDao();
-                                        ArrayList<TypeBean> data = (ArrayList<TypeBean>) typedao.get_ListInfo();
+                                        TypeDao typedao1 = new TypeDao();
+                                        ArrayList<TypeBean> data1 = (ArrayList<TypeBean>) typedao.get_ListInfo();
                                         data = (ArrayList<TypeBean>) typedao.get_ListInfo();
-                                        for (TypeBean bean1 : data) {
+                                        for (TypeBean bean1 : data1) {
                                     %>
                                     <option value="<%= bean1.getName() %>"><%= bean1.getName() %>
                                     </option>

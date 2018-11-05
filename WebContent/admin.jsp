@@ -44,7 +44,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
                             <a href="#" role="button" class="dropdown-toggle" data-hover="dropdown"> <i
-                                    class="glyphicon glyphicon-user"></i> 欢迎您， <s:property value="#session.admin.name"/>
+                                    class="glyphicon glyphicon-user"></i> 欢迎您，<%=admin.getUsername() %>
                                 <i class="caret"></i></a>
 
                             <ul class="dropdown-menu">
